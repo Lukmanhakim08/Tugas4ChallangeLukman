@@ -7,6 +7,8 @@ import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.recy_data.view.*
 
 class AdapterSchool(val listDataSchool : List<School>) : RecyclerView.Adapter<AdapterSchool.ViewHolder>() {
+
+    private var adb : SchoolDatabase? = null
     class ViewHolder (itemView: View) : RecyclerView.ViewHolder(itemView) {
 
     }
@@ -18,11 +20,10 @@ class AdapterSchool(val listDataSchool : List<School>) : RecyclerView.Adapter<Ad
     }
 
     override fun onBindViewHolder(holder: AdapterSchool.ViewHolder, position: Int) {
-        holder.itemView.text_sekolah.text = listDataSchool[position].id.toString()
+        holder.itemView.text_id.text = listDataSchool[position].id.toString()
+        holder.itemView.text_sekolah.text = listDataSchool[position].sekolah
         holder.itemView.text_alamat.text = listDataSchool[position].alamat
         holder.itemView.text_tahun.text = listDataSchool[position].tahun
-
-
     }
 
     override fun getItemCount(): Int {
